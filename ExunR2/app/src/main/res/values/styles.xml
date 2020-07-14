@@ -1,0 +1,116 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FEE295</item>
+        <item name="colorPrimaryDark">#99272727</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="hey_noah">
+        <item name="android:textSize">
+            22sp
+        </item>
+        <item name="android:textColor">
+            #272727
+        </item>
+    </style>
+
+    <style name="all_product">
+
+        <item name="android:textSize">
+            13sp
+        </item>
+
+        <item name="android:textColor">
+            #777777
+        </item>
+
+    </style>
+
+    <style name="top_selling">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:textColor">
+            #272727
+        </item>
+
+    </style>
+
+    <style name="fresh_banan">
+
+        <item name="android:textSize">
+            17sp
+        </item>
+
+        <item name="android:textColor">
+            #444444
+        </item>
+
+    </style>
+
+    <style name="per_lb">
+
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:textColor">
+            #444444
+        </item>
+
+    </style>
+
+    <style name="deal">
+
+        <item name="android:textSize">
+            21sp
+        </item>
+
+        <item name="android:textColor">
+            #272727
+        </item>
+
+    </style>
+
+    <style name="dealEnd">
+
+        <item name="android:textSize">
+            15sp
+        </item>
+
+        <item name="android:textColor">
+            #99000000
+        </item>
+
+    </style>
+
+    <style name="time">
+
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:textColor">
+            #99000000
+        </item>
+
+    </style>
+
+    <style name="time2">
+
+        <item name="android:textSize">
+            13sp
+        </item>
+
+        <item name="android:textColor">
+            #80303030
+        </item>
+
+    </style>
+
+</resources>

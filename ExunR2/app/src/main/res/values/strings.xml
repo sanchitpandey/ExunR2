@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">GroceryNinja</string>
+    <string name="all_product">
+        All products are from our private farms.
+    </string>
+    <string name="top_selling">
+        Top Selling
+    </string>
+    <string name="fresh_banan">
+        Fresh Banana
+    </string>
+    <string name="costBanana">
+        <b>$1.99</b> Per lb
+    </string>
+    <string name="costAvocado">
+        <b>$3.99</b> Per lb
+    </string>
+    <string name="costApple">
+        <b>$4.99</b> Per lb
+    </string>
+</resources>
