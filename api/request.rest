@@ -1,0 +1,44 @@
+// This makes a user with sent credentials
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name": "Sanchit",
+    "password":"hello"
+}
+
+###
+// This logs in the user and sends back a jwt access token which can be used to access the products
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "name": "Sanchit",
+    "password":"hello"
+}
+
+###
+// This sends back a json of all listed products
+GET http://localhost:3000/products
+
+###
+// This adds a single product sent in the body when accessed through a valid access token
+POST http://localhost:3000/products?type=ADD
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU2FuY2hpdCIsImlhdCI6MTU5NTk1Njg0MH0.7Q-9zqzxdA8K1CPYY2BT8QQW80FKbXuzwvCbbF2i6Xk
+Content-Type: application/json
+
+{
+    "name": "Avocado",
+    "cost": "3.66",
+    "number": "999"
+}
+
+###
+// This deletes a single product by name when accessed through a valid access token
+POST http://localhost:3000/products?type=DELETE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU2FuY2hpdCIsImlhdCI6MTU5NTk1Njg0MH0.7Q-9zqzxdA8K1CPYY2BT8QQW80FKbXuzwvCbbF2i6Xk
+Content-Type: application/json
+
+{
+    "name": "Avocado"
+}
