@@ -9,7 +9,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/fruitBg"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="match_parent"
         android:background="@drawable/b_gradient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,10 +29,10 @@
             android:id="@+id/fruitImage"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_marginBottom="120dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="80dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 

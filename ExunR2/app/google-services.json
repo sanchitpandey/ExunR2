@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "996172101677",
+    "firebase_url": "https://exunr2.firebaseio.com",
+    "project_id": "exunr2",
+    "storage_bucket": "exunr2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996172101677:android:969bb92260b90189c7e0a4",
+        "android_client_info": {
+          "package_name": "com.sanchit.groceryninja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996172101677-skc7ofoumjdn9n5hmimu8tm2mfbher4g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sanchit.groceryninja",
+            "certificate_hash": "a734e4ad138f018e3a25a827aaa4557452fac2ce"
+          }
+        },
+        {
+          "client_id": "996172101677-1age3r9o56t7k42tkgrstpff0rth188n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzuoJZNhoqNekR38RnPmqzi8gYczrWwRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996172101677-1age3r9o56t7k42tkgrstpff0rth188n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

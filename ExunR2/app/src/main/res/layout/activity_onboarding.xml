@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Onboarding">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/loginScreenBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:lineHeight="60dp"
+            android:text="GROCERY NINJA\nGLOBAL"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textFontWeight="800"
+            android:textSize="45sp"
+            app:fontFamily="@font/montserrat"
+            tools:layout_editor_absoluteX="143dp"
+            tools:layout_editor_absoluteY="153dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintBottom_toTopOf="@id/signupScreenBtn"
+        android:text="Login"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:id="@+id/loginScreenBtn"
+        android:background="@drawable/login_btn"
+        tools:layout_editor_absoluteX="20dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/signupScreenBtn"
+        android:textColor="@color/darkBlue"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:text="Sign Up"
+        android:background="@drawable/border_btn"
+        android:layout_marginBottom="25dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="20dp" />
+
+
+</android.support.constraint.ConstraintLayout>

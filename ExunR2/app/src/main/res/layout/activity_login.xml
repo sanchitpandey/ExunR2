@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Login">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:lineHeight="60dp"
+        android:text="GROCERY NINJA\nGLOBAL"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textFontWeight="800"
+        android:textSize="45sp"
+        app:fontFamily="@font/montserrat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/signupSwitchBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <EditText
+            android:id="@+id/editTextNameLogin"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Username"
+            android:inputType="textWebEditText"
+            android:paddingRight="10dp"
+            tools:layout_editor_absoluteX="23dp"
+            tools:layout_editor_absoluteY="165dp" />
+
+        <EditText
+            android:id="@+id/editTextPasswordLogin"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="25dp"
+            android:hint="Password"
+            android:inputType="textWebPassword"
+            android:paddingRight="10dp"
+            tools:layout_editor_absoluteX="23dp"
+            tools:layout_editor_absoluteY="165dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="30dp"
+            app:layout_constraintBottom_toTopOf="@id/signupScreenBtn"
+            android:text="Login"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:id="@+id/loginBtn"
+            android:background="@drawable/login_btn"
+            tools:layout_editor_absoluteX="20dp" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/border_btn"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textColor="@color/darkBlue"
+        android:id="@+id/signupSwitchBtn"
+        android:text="Sign Up"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
