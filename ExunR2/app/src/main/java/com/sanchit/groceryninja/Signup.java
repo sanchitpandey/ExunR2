@@ -1,6 +1,7 @@
 package com.sanchit.groceryninja;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -34,13 +35,32 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 
 public class Signup extends AppCompatActivity {
-    private EditText email, password, name;
-    String TAG = "TAG", url ="https://quiet-mountain-65416.herokuapp.com/", ACCESS_TOKEN;
+    private EditText password, name;
+    String TAG = "TAG", url ="https://quiet-mountain-65416.herokuapp.com/", ACCESS_TOKEN="";
     RequestQueue queue;
+    public final String SHARED_PREFS = "sharedPrefs";
+
+    void loadToken(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        ACCESS_TOKEN = sharedPreferences.getString("accessToken", "");
+    }
+
+    void LogIn(){
+        startActivity(new Intent(Signup.this, MainActivity.class));
+        finish();
+    }
+
+    void TokenProcess(){
+        loadToken();
+        if (!ACCESS_TOKEN.equals("")){
+            LogIn();
+        }
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
+        TokenProcess();
     }
 
     @Override

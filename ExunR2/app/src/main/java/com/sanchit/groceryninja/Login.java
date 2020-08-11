@@ -1,7 +1,9 @@
 package com.sanchit.groceryninja;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,19 +33,43 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
+import java.util.Set;
 
 public class Login extends AppCompatActivity {
     private EditText name, password;
-    String url ="https://quiet-mountain-65416.herokuapp.com/", ACCESS_TOKEN, TAG="TAG";
-    RequestQueue queue;
+    private String url ="https://quiet-mountain-65416.herokuapp.com/", TAG="TAG", ACCESS_TOKEN="";
+    private RequestQueue queue;
+    public final String SHARED_PREFS = "sharedPrefs";
+
+    void saveToken(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString("accessToken", ACCESS_TOKEN).apply();
+    }
+
+    void loadToken(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        ACCESS_TOKEN = sharedPreferences.getString("accessToken", "");
+    }
+
+    void LogIn(){
+        startActivity(new Intent(Login.this, MainActivity.class));
+        finish();
+    }
+
+    void TokenProcess(){
+        loadToken();
+        if (!ACCESS_TOKEN.equals("")){
+            LogIn();
+        }
+    }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if (ACCESS_TOKEN != null) {
-            startActivity(new Intent(Login.this, MainActivity.class));
-            finish();
-        }
+        TokenProcess();
     }
 
     @Override
@@ -65,8 +91,6 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mail = name.getText().toString();
-                String pass = password.getText().toString();
                 if (name.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
                     Toast.makeText(Login.this, "Please enter a username and password", Toast.LENGTH_SHORT).show();
                 }
@@ -93,10 +117,8 @@ public class Login extends AppCompatActivity {
                     JSONObject res = new JSONObject(response);
                     Toast.makeText(Login.this, res.get("message").toString(), Toast.LENGTH_SHORT).show();
                     ACCESS_TOKEN = res.get("accessToken").toString();
-                    Intent i = new Intent(Login.this, MainActivity.class);
-                    i.putExtra("accessToken", ACCESS_TOKEN);
-                    i.putExtra("name", name.getText().toString());
-                    startActivity(i);
+                    saveToken();
+                    LogIn();
                 } catch (JSONException e) {
                     Toast.makeText(Login.this, response, Toast.LENGTH_SHORT).show();
                     e.printStackTrace();

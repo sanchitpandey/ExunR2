@@ -10,11 +10,11 @@
     <ImageView
         android:id="@+id/sidebar"
         android:layout_width="30dp"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:contentDescription="Sidebar"
-        android:src="@drawable/ic_menu"
+        android:src="@drawable/ic_logout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

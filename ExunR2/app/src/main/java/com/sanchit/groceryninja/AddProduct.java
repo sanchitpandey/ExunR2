@@ -1,5 +1,7 @@
 package com.sanchit.groceryninja;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,13 +27,20 @@ import java.util.Map;
 
 public class AddProduct extends AppCompatActivity {
     EditText name, desc, num, picURL, available;
-    String ACCESS_TOKEN, url="https://quiet-mountain-65416.herokuapp.com/";
+    String ACCESS_TOKEN="", url="https://quiet-mountain-65416.herokuapp.com/";
     RequestQueue queue;
+    public final String SHARED_PREFS = "sharedPrefs";
+
+    void loadToken(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        ACCESS_TOKEN = sharedPreferences.getString("accessToken", "");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
+        loadToken();
         queue = Volley.newRequestQueue(this);
         ACCESS_TOKEN = getIntent().getExtras().getString("accessToken");
         name = findViewById(R.id.addName);

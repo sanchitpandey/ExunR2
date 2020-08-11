@@ -2,6 +2,7 @@ package com.sanchit.groceryninja;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.auth0.android.jwt.JWT;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -38,11 +40,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    String TAG = "TAG", ACCESS_TOKEN, url ="https://quiet-mountain-65416.herokuapp.com/", name="User";
+    String TAG = "TAG", ACCESS_TOKEN="", url ="https://quiet-mountain-65416.herokuapp.com/", name="User";
     RequestQueue queue;
     JSONArray fruits;
     ArrayList<Product> fruitList;
     ProductAdaptor adapter;
+    private final String SHARED_PREFS = "sharedPrefs";
+    JWT jwt;
+
+    void saveToken(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString("accessToken", ACCESS_TOKEN).apply();
+    }
+
+    void loadToken(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        ACCESS_TOKEN = sharedPreferences.getString("accessToken", "");
+    }
+
+    void TokenProcess(){
+        loadToken();
+        if (ACCESS_TOKEN.equals("")){
+            saveToken();
+            finish();
+        }
+
+    }
 
     void mapFruits(){
         if (fruitList!=null){
@@ -53,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONObject y = (JSONObject) fruits.get(i);
                     Product x = new Product(y.get("name").toString(), y.get("cost").toString(), y.get("desc").toString(), y.get("picURL").toString(), y.get("available").toString());
-                    System.out.println(x);
                     fruitList.add(x);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -63,8 +87,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void logoutSeq(){
-        if (ACCESS_TOKEN!=null){
+        if (!ACCESS_TOKEN.equals("")){
             ACCESS_TOKEN = "";
+            saveToken();
         }
         startActivity(new Intent(MainActivity.this, Onboarding.class));
         finish();
@@ -73,15 +98,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        try{
-            ACCESS_TOKEN = getIntent().getExtras().getString("accessToken");
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        if (ACCESS_TOKEN==null){
-            logoutSeq();
-        }
+        TokenProcess();
     }
 
     void callAPI(){
@@ -118,29 +135,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         queue = Volley.newRequestQueue(this);
         fruitList = new ArrayList<>();
-        try{
-            ACCESS_TOKEN = getIntent().getExtras().getString("accessToken");
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        
-
+        TokenProcess();
+        jwt = new JWT(ACCESS_TOKEN);
+        name = jwt.getClaim("name").asString();
 
         // Recycler View
         RecyclerView recyclerView = findViewById(R.id.fruitCards);
         adapter = new ProductAdaptor(fruitList, getApplication());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        try{
-            name = getIntent().getExtras().getString("name");
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            if (name.isEmpty()){
-                name = "User";
-            }
-        }
+
         ((TextView)findViewById(R.id.hey_noah)).setText("Hey " + name+",");
         findViewById(R.id.sidebar).setOnClickListener(new View.OnClickListener() {
             @Override

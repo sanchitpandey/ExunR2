@@ -1,6 +1,7 @@
 package com.sanchit.groceryninja;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,16 +17,9 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class Fruit extends AppCompatActivity {
-    String TAG = "TAG";
-    String name="";
     TextView fruitname,cost,desc;
     ImageView fruit;
     ConstraintLayout fruitBG;
-
-    void logoutSeq(){
-        startActivity(new Intent(Fruit.this, Onboarding.class));
-        finish();
-    }
 
     @Override
     protected void onStart() {
