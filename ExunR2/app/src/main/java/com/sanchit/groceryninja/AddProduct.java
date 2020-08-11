@@ -37,7 +37,7 @@ public class AddProduct extends AppCompatActivity {
         name = findViewById(R.id.addName);
         desc = findViewById(R.id.addDesc);
         num = findViewById(R.id.addNum);
-//        picURL = findViewById(R.id.addUrl);
+        picURL = findViewById(R.id.addUrl);
         available = findViewById(R.id.addAvailable);
         findViewById(R.id.addBtn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +57,7 @@ public class AddProduct extends AppCompatActivity {
         try {
             jsonBody.put("name", name.getText().toString());
             jsonBody.put("cost", num.getText().toString());
-            jsonBody.put("picURL", "");
+            jsonBody.put("picURL", picURL.getText().toString());
             jsonBody.put("desc", desc.getText().toString());
             jsonBody.put("available", available.getText().toString());
         } catch (JSONException e) {

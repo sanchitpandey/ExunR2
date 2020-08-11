@@ -39,13 +39,13 @@
             android:textSize="20sp"
             android:layout_height="wrap_content"
             android:hint="Description" />
-<!--        <EditText-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:id="@+id/addUrl"-->
-<!--            android:layout_width="240dp"-->
-<!--            android:textSize="20sp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Pic Url" />-->
+        <EditText
+            android:layout_marginTop="20dp"
+            android:id="@+id/addUrl"
+            android:layout_width="240dp"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:hint="Pic Url" />
 
         <EditText
             android:layout_marginTop="20dp"

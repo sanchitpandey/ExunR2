@@ -21,7 +21,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/ic_back"
-            android:onClick="back"
+            android:id="@+id/fruitBack"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

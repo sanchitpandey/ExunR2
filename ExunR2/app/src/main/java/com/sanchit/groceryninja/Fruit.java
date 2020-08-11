@@ -56,9 +56,12 @@ public class Fruit extends AppCompatActivity {
             }
             fruitBG.setBackgroundResource(R.drawable.b_gradient);
         }
-    }
 
-    void back(View view){
-        finish();
+        findViewById(R.id.fruitBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
