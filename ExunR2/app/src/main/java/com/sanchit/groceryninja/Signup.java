@@ -105,7 +105,7 @@ public class Signup extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url+"users", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (response=="201"){
+                if (response.equals("201")){
                     Toast.makeText(Signup.this, "Signed Up! You may now Log in", Toast.LENGTH_LONG).show();
                 }
                 else {
